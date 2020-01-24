@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="5967" started-at="2020-01-23T05:35:08Z" finished-at="2020-01-23T05:35:14Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="5967" started-at="2020-01-23T05:35:08Z" finished-at="2020-01-23T05:35:14Z">
+      <class name="com.mindtree.sdet.util.UploadFile">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.mindtree.sdet.util.UploadFile@43a25848]" name="setup" is-config="true" duration-ms="5494" started-at="2020-01-22T23:35:08Z" finished-at="2020-01-22T23:35:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="uploadFileTest()[pri:0, instance:com.mindtree.sdet.util.UploadFile@43a25848]" name="uploadFileTest" duration-ms="453" started-at="2020-01-22T23:35:13Z" finished-at="2020-01-22T23:35:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- uploadFileTest -->
+      </class> <!-- com.mindtree.sdet.util.UploadFile -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
