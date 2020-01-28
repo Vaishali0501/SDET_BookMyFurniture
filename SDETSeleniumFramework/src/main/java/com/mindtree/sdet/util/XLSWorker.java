@@ -50,18 +50,12 @@ public class XLSWorker {
 	 * @param path
 	 *            Path to the excel file
 	 */
+	
+    
 	public XLSWorker(String path) {
 
 		this.path = path;
-		try {
-			fis = new FileInputStream(path);
-			workbook = new XSSFWorkbook(fis);
-			sheet = workbook.getSheetAt(0);
-			fis.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("Didn't find file " + path);
-		}
+		
 	}
 
 	/**
@@ -102,7 +96,13 @@ public class XLSWorker {
 			{
 			for(int k=0;k<sheetNew.getRow(0).getLastCellNum();k++) {
 			
+				try {
 				data[i][k]=sheetNew.getRow(i+1).getCell(k).toString();
+				}
+				catch(NullPointerException ex) {
+					System.out.println("Unable to read the data in cell");
+					ex.printStackTrace();
+				}
 			}
 			}
 		return data;

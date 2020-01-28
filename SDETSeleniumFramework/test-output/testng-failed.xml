@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+<suite name="Failed suite [Suite]" parallel="tests">
+  <parameter name="baseUrl" value="http://okmry52647dns.eastus.cloudapp.azure.com:9090"/>
+  <parameter name="browser" value="chrome"/>
+  <parameter name="mobile" value="no"/>
+  <listeners>
+    <listener class-name="com.mindtree.sdet.ExtentReportListener.ExtentReportNG"/>
+  </listeners>
+  <test name="ChromeTest(failed)" parallel="tests">
+    <parameter name="baseUrl" value="http://okmry52647dns.eastus.cloudapp.azure.com:9090"/>
+    <parameter name="browser" value="chrome"/>
+    <parameter name="mobile" value="no"/>
     <classes>
-      <class name="com.mindtree.sdet.util.UploadFile">
+      <class name="com.mindtree.sdet.test.LoginPageTest">
         <methods>
-          <include name="setup"/>
-          <include name="uploadFileTest"/>
+          <include name="registerUser"/>
+          <include name="captureScreenshot"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- com.mindtree.sdet.util.UploadFile -->
+      </class> <!-- com.mindtree.sdet.test.LoginPageTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- ChromeTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->

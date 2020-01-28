@@ -8,8 +8,9 @@
 	  	<!-- Test Level Parameters -->
     	<parameter name="browser" value="chrome"/>
   	<parameter name="baseUrl" value="http://okmry52647dns.eastus.cloudapp.azure.com:9090"/>
+  	<parameter name="mobile" value="no"/>
 	    <classes>
-	      <class name="com.mindtree.sdet.test.AboutPageTest"/>
+	      <class name="com.mindtree.sdet.test.LoginPageTest"/>
 	     
 	    </classes>
 	    

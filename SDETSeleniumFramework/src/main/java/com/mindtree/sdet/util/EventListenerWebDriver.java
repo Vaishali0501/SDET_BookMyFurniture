@@ -14,10 +14,20 @@ public class EventListenerWebDriver extends PageBase implements WebDriverEventLi
 	
 	public void beforeNavigateTo(String url, WebDriver driver) {
 		System.out.println("Before navigating to: '" + url + "'");
-	}
+		
+		}
 
 	public void afterNavigateTo(String url, WebDriver driver) {
 		System.out.println("Navigated to:'" + url + "'");
+		try {
+			
+			System.out.println("+++++++++++++++++++++");
+			Screenshot.takingScreenshotErrorMethod("afterNavigateTo");
+			
+		}catch(IOException e) {
+			
+		e.printStackTrace();
+		}
 	}
 
 	public void beforeChangeValueOf(WebElement element, WebDriver driver) {
@@ -31,10 +41,26 @@ public class EventListenerWebDriver extends PageBase implements WebDriverEventLi
 
 	public void beforeClickOn(WebElement element, WebDriver driver) {
 		System.out.println("Trying to click on: " + element.toString());
+		try {
+			
+			Screenshot.takingScreenshotErrorMethod("beforeClickOn");
+			
+		}catch(IOException e) {
+			
+		e.printStackTrace();
+		}
 	}
 
 	public void afterClickOn(WebElement element, WebDriver driver) {
 		System.out.println("Clicked on: " + element.toString());
+		try {
+			
+			Screenshot.takingScreenshotErrorMethod("afterClickOn");
+			
+		}catch(IOException e) {
+			
+		e.printStackTrace();
+		}
 	}
 
 	public void beforeNavigateBack(WebDriver driver) {
@@ -56,14 +82,14 @@ public class EventListenerWebDriver extends PageBase implements WebDriverEventLi
 	public void onException(Throwable error, WebDriver driver) {
 		System.out.println("Exception occured: " + error);
 		
-		//try {
+		try {
 			
-			//TestUtil.takingScreenshotErrorMethod();
+			Screenshot.takingScreenshotErrorMethod("onException");
 			
-		//}//catch(IOException e) {
+		}catch(IOException e) {
 			
-		//	e.printStackTrace();
-		//}
+		e.printStackTrace();
+		}
 		
 	}
 

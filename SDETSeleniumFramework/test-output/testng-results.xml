@@ -2,20 +2,67 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="5967" started-at="2020-01-23T05:35:08Z" finished-at="2020-01-23T05:35:14Z">
+  <suite name="Suite" duration-ms="13526" started-at="2020-01-26T03:34:01Z" finished-at="2020-01-26T03:34:15Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="5967" started-at="2020-01-23T05:35:08Z" finished-at="2020-01-23T05:35:14Z">
-      <class name="com.mindtree.sdet.util.UploadFile">
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.mindtree.sdet.util.UploadFile@43a25848]" name="setup" is-config="true" duration-ms="5494" started-at="2020-01-22T23:35:08Z" finished-at="2020-01-22T23:35:13Z">
+    <test name="ChromeTest" duration-ms="13526" started-at="2020-01-26T03:34:01Z" finished-at="2020-01-26T03:34:15Z">
+      <class name="com.mindtree.sdet.test.LoginPageTest">
+        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.mindtree.sdet.test.LoginPageTest@39aeed2f]" name="setUp" is-config="true" duration-ms="7999" started-at="2020-01-25T21:34:01Z" finished-at="2020-01-25T21:34:09Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[http://okmry52647dns.eastus.cloudapp.azure.com:9090]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[no]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="uploadFileTest()[pri:0, instance:com.mindtree.sdet.util.UploadFile@43a25848]" name="uploadFileTest" duration-ms="453" started-at="2020-01-22T23:35:13Z" finished-at="2020-01-22T23:35:14Z">
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.mindtree.sdet.test.LoginPageTest@39aeed2f]" name="setUp" is-config="true" duration-ms="1494" started-at="2020-01-25T21:34:10Z" finished-at="2020-01-25T21:34:11Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- uploadFileTest -->
-      </class> <!-- com.mindtree.sdet.util.UploadFile -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="registerUser(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.mindtree.sdet.test.LoginPageTest@39aeed2f]" name="registerUser" duration-ms="3448" started-at="2020-01-25T21:34:11Z" data-provider="getFurnitureTestData" finished-at="2020-01-25T21:34:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Mistaa Paddu]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2112322343]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[masterpaddu@gmail.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Test@1234]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerUser -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.mindtree.sdet.test.LoginPageTest@39aeed2f]" name="tearDown" is-config="true" duration-ms="164" started-at="2020-01-25T21:34:15Z" finished-at="2020-01-25T21:34:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.mindtree.sdet.test.LoginPageTest -->
+    </test> <!-- ChromeTest -->
+  </suite> <!-- Suite -->
 </testng-results>

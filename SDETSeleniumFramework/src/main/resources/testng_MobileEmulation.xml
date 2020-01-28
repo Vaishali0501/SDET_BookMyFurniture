@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="tests">
+ <listeners>
+	<listener class-name="com.mindtree.sdet.ExtentReportListener.ExtentReportNG"/>
+</listeners>
+ 
+  <test name="ChromeTest">
+	  	<!-- Test Level Parameters -->
+    	<parameter name="browser" value="chrome"/>
+  	<parameter name="baseUrl" value="http://okmry52647dns.eastus.cloudapp.azure.com:9090"/>
+  	<parameter name="mobile" value="yes"/>
+	    <classes>
+	      <class name="com.mindtree.sdet.test.MobileEmulationTest"/>
+	     
+	    </classes>
+	    
+	    
+  </test> 
+ 
+</suite> 

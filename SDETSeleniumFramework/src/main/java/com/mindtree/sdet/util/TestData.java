@@ -21,16 +21,9 @@ public class TestData {
 	public static final int TEST_ADD_REPOSITORY = 4;
 	public static final int TEST_DELETE_REPOSITORY = 5;
 	public static final int TEST_ADD_ISSUE = 6;
-	public static final int STEP_1 = 1;
-	public static final int STEP_2 = 2;
-	public static final int STEP_3 = 3;
-	public static final int STEP_4 = 4;
-	public static final int STEP_5 = 5;
-	public static final int STEP_6 = 6;
-	public static final int STEP_7 = 7;
 	public static final String SHEET_NAME_TEST_CASE = "TestCases";
 	public static final String SHEET_NAME_TEST_DATA = "TestData";
-	private final static String xlsPath = "/Users/sushant/git/SDETProject/SDETSeleniumFramework/data/TestCases.xls";
+	private final static String xlsPath = "/Users/sushant/git/SDET_BookMyFurniture/SDETSeleniumFramework/data/TestCases.xls";
 	private static XLSWorker xlsWorker = new XLSWorker(xlsPath);
 	private static final int START_ROW_NUM_LOGIN_TEST = 1;
 	private static final int START_ROW_NUM_SEARCH_TEST = 6;
