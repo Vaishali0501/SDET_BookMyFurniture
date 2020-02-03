@@ -15,8 +15,8 @@
       <class name="com.mindtree.sdet.test.LoginPageTest">
         <methods>
           <include name="registerUser"/>
-          <include name="captureScreenshot"/>
           <include name="setUp"/>
+          <include name="tearDown"/>
         </methods>
       </class> <!-- com.mindtree.sdet.test.LoginPageTest -->
     </classes>

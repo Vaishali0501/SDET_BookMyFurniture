@@ -1,5 +1,8 @@
 package com.mindtree.sdet.test;
 
+import java.lang.reflect.Method;
+
+import org.apache.log4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -9,6 +12,8 @@ import com.mindtree.sdet.pages.LandingPage;
 import com.mindtree.sdet.pages.LoginPage;
 import com.mindtree.sdet.pages.PageBase;
 import com.mindtree.sdet.pages.SellingPage;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 
 public class LandingPageTest extends PageBase{
 	
@@ -16,12 +21,17 @@ public class LandingPageTest extends PageBase{
 	LoginPage loginPage;
 	LandingPage landingPage;
 	SellingPage sellingPage;
+	Logger log = Logger.getLogger(HomePageTest.class);
+	private ExtentTest extentReportLogger = null;
+	private static String testCategory = "Book My Furniture App";
 	public LandingPageTest() {
 		super();
 	}
 	@BeforeMethod
 	public void setUp(){
 		homePage = new HomePage();
+		this.extentReportLogger = PageBase.extentReportLogger;
+		extentReportLogger.assignCategory(testCategory);
 	}
 		
 		//loginPage=homePage.ClickSignUpButton();
@@ -38,10 +48,18 @@ public class LandingPageTest extends PageBase{
 	}
 	*/
 	@Test(priority=2)
-	public void clickAllFurnBtn()
+	public void clickAllFurnBtn(Method method)
 	{
 	//	testUtil.switchToFrame();
 		sellingPage=landingPage.clickAllFurnBtn();
+		if (sellingPage == null) {
+
+			extentReportLogger.log(LogStatus.FAIL, "The testcase is failed ===>>");
+			PageBase.reportTestCaseStatus(driver, extentReportLogger, method.getName(), false);
+		} else {
+			extentReportLogger.log(LogStatus.PASS, "The testcase is passed ===>>");
+			PageBase.reportTestCaseStatus(driver, extentReportLogger, method.getName(), true);
+		}
 	}
 
 }

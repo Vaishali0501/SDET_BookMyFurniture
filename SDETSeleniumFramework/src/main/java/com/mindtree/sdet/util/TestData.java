@@ -23,7 +23,7 @@ public class TestData {
 	public static final int TEST_ADD_ISSUE = 6;
 	public static final String SHEET_NAME_TEST_CASE = "TestCases";
 	public static final String SHEET_NAME_TEST_DATA = "TestData";
-	private final static String xlsPath = "/Users/sushant/git/SDET_BookMyFurniture/SDETSeleniumFramework/data/TestCases.xls";
+	private final static String xlsPath = "/Users/sushant/git/SDET_BookMyFurniture/SDETSeleniumFramework/src/main/resources/data/TestCases.xls";
 	private static XLSWorker xlsWorker = new XLSWorker(xlsPath);
 	private static final int START_ROW_NUM_LOGIN_TEST = 1;
 	private static final int START_ROW_NUM_SEARCH_TEST = 6;

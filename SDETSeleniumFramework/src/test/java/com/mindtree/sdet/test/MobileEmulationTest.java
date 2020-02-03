@@ -28,7 +28,6 @@ public class MobileEmulationTest extends PageBase{
     public void titleCheckMobile() throws Exception {
 			
 		String title= driverMobile.getTitle();
-		System.out.println(title);
 		Thread.sleep(5000);
 		Assert.assertEquals(title, "Book My Furniture - QA(2.3.2)-Final");
 	}

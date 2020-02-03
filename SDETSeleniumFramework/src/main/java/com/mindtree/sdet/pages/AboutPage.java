@@ -34,7 +34,6 @@ public class AboutPage extends PageBase {
 				Actions newTab = new Actions(driver);
 				newTab.keyDown(Keys.SHIFT).click(aboutClick).keyUp(Keys.SHIFT).build().perform();
 				ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
-				System.out.println(tabs.get(0));
 				driver.switchTo().window(tabs.get(1)); //switches to new tab
 				driver.switchTo().window(tabs.get(0)); // switch back to main screen        
 				driver.switchTo().window(tabs.get(1));

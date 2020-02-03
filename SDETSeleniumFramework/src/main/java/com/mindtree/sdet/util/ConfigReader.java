@@ -19,7 +19,7 @@ public class ConfigReader {
 	public ConfigReader() {
 		FileInputStream fis;
 		try {
-			fis = new FileInputStream("data/config.properties");
+			fis = new FileInputStream("/Users/sushant/git/SDET_BookMyFurniture/SDETSeleniumFramework/src/main/resources/data/config.properties");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			System.out.println("Cant't read config.properties file!");

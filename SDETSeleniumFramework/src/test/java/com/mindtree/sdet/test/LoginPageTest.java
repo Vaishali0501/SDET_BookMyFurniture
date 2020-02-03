@@ -1,9 +1,8 @@
 package com.mindtree.sdet.test;
 
-import java.io.IOException;
+import java.lang.reflect.Method;
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
+import org.testng.Reporter;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -17,66 +16,61 @@ import com.mindtree.sdet.util.ConfigReader;
 import com.mindtree.sdet.util.Screenshot;
 import com.mindtree.sdet.util.TestData;
 import com.mindtree.sdet.util.XLSWorker;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 
 public class LoginPageTest extends PageBase {
-	
+
 	HomePage homePage;
 	LoginPage loginPage;
 	LandingPage landingPage;
 	XLSWorker xlsWorker;
 	Screenshot screenshot;
-	String sheetName="customerinfo";
-
+	String sheetName = "customerinfo";
 	ConfigReader configReader;
-	Logger log=Logger.getLogger(LoginPageTest.class);
-	
+	Logger log = Logger.getLogger(LoginPageTest.class);
+	private ExtentTest extentReportLogger = null;
+	private String methodName;
+	private static String testCategory = "Book My Furniture App";
+
 	public LoginPageTest() {
 		super();
 	}
-	
-	
+
 	@BeforeMethod
-	public void setUp(){
-		homePage = new HomePage();	
-		loginPage=homePage.ClickSignUpButton();
+	public void setUp() {
+		homePage = new HomePage();
+		loginPage = homePage.ClickSignUpButton();
+		Reporter.log("Entering the login page", true);
 		log.info("Entering Login Page");
 		log.debug("This is a debug message");
 		log.warn("This is a warning Message");
-		log.fatal("This is a fatal error message");
+		log.fatal("This is a fatal error");
+		this.extentReportLogger = PageBase.extentReportLogger;
+		extentReportLogger.assignCategory(testCategory);
+
 	}
-	
-	
-	//@Test(priority=1)
-	//public void loginTest()
-	//{
-	//	landingPage=loginPage.SignIn(prop.getProperty("username"), prop.getProperty("password"));
-	//}
-	
-//	@Test(priority=1)
-	//public void createAccountBtn()
-//	{
-	//	loginPage.createAccountClick();
-//	}
-	
+
 	@DataProvider
-	public Object[][] getFurnitureTestData()
-	{
+	public Object[][] getFurnitureTestData() {
 		return TestData.getSearchData("TestData");
 	}
-	
-	@Test(priority=1, dataProvider="getFurnitureTestData")
-	public void registerUser(String Name, String MobileNumber, String Email, String Password)
-	{
-		//loginPage.createAccountClick();
-		//loginPage.enterUserDetails("Sushant", "9872345142", "sushantbhargav@gmail.com", "Test@123");
+
+	@Test(dataProvider = "getFurnitureTestData")
+	public void registerUser(String Name, String MobileNumber, String Email, String Password, Method method) {
+		// loginPage.createAccountClick();
+		// loginPage.enterUserDetails("Sushant", "9872345142",
+		// "sushantbhargav@gmail.com", "Test@123");
 		log.info("**********************Furniture Project*****************");
-		System.out.println("**********************Furniture Project*****************");
-		System.out.println("Mobile number : =====>> "+MobileNumber);
+		Reporter.log("Furniture Project", true);
 		log.info("**********************Starting Test Case-1**************");
-		log.info("Entering"+Name+"to login to application");
+		log.info("Entering" + Name + "to login to application");
+		log.info("Entering" + MobileNumber + "to login to application");
+		log.info("Entering" + Password + "to login to application");
 		loginPage.enterUserDetails(Name, MobileNumber, Email, Password);
 		log.info("**********************Ending Test Case-1****************");
+		extentReportLogger.log(LogStatus.PASS, "The testcase is passed ===>>");
+		PageBase.reportTestCaseStatus(driver, extentReportLogger, method.getName(), true);
 	}
-	
 
 }

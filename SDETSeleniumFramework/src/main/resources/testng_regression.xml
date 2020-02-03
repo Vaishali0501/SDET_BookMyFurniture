@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Suite" parallel="tests">
- <listeners>
-	<listener class-name="com.mindtree.sdet.ExtentReportListener.ExtentReportNG"/>
-</listeners>
+ 
  
   <test name="ChromeTest">
 	  	<!-- Test Level Parameters -->
