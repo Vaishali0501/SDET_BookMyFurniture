@@ -24,7 +24,7 @@ public class EventListenerWebDriver extends PageBase implements WebDriverEventLi
 			System.out.println("+++++++++++++++++++++");
 			Screenshot.takingScreenshotErrorMethod("afterNavigateTo");
 			
-		}catch(IOException e) {
+		}catch(Exception e) {
 			
 		e.printStackTrace();
 		}
@@ -43,9 +43,9 @@ public class EventListenerWebDriver extends PageBase implements WebDriverEventLi
 		System.out.println("Trying to click on: " + element.toString());
 		try {
 			
-			Screenshot.takingScreenshotErrorMethod("beforeClickOn");
+			//Screenshot.takingScreenshotErrorMethod("beforeClickOn");
 			
-		}catch(IOException e) {
+		}catch(Exception e) {
 			
 		e.printStackTrace();
 		}

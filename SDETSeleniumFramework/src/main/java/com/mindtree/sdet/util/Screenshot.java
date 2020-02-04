@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.mindtree.sdet.pages.PageBase;
 
-public class Screenshot extends PageBase {
+public class Screenshot extends PageBase{
 	
 public static void takingScreenshotErrorMethod(String actionName) throws IOException {
 		

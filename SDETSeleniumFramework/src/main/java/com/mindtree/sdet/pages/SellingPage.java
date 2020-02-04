@@ -54,7 +54,7 @@ public class SellingPage extends PageBase{
 				selectRadioButton.click();
 				placeOrderFinalButton.click();
 				String ffText = finalText.getText();
-				//System.out.println(ffText);
+				System.out.println(ffText);
 				return ffText;
 			}
 

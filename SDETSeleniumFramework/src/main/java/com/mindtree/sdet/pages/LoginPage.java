@@ -67,10 +67,15 @@ public class LoginPage extends PageBase {
 		
 		public LandingPage SignIn(String username, String password)
 		{
+			try {
 			enterEmail.sendKeys(username);
 			enterPassword.sendKeys(password);
 			signInBtn.click();
 			return new LandingPage();
+			}catch(Exception e) {
+				e.printStackTrace();
+				return new LandingPage();
+			}
 		}
 		
 		public void createAccountClick()
@@ -83,14 +88,8 @@ public class LoginPage extends PageBase {
 		
 		public void enterUserDetails(String name, String mobileNumber, String newEmail, String newPassword)
 		{
-						
-			//WebDriverWait wait = new WebDriverWait(driver,testUtil.IMPLICIT_WAIT);
-			//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/app-root/bmf-layout/div[2]/app-login/div/p-sidebar/div/app-signup/div/div/form/div[5]/div[2]/button")));
 			
-			
-			//WebElement element = driver.findElement(By.xpath("/html/body/app-root/bmf-layout/div[2]/app-login/div/p-sidebar/div/app-signup/div/div/form/div[1]/input"));
-			//WebElement element = driver.findElement(By.xpath(enterUserName);
-		
+			System.out.println("Printing Login Page");
 			WebDriverWait wait = new WebDriverWait(driver,10);
 			WebElement element=wait.until(ExpectedConditions.visibilityOf(accountBtn));
 			accountBtn.click();

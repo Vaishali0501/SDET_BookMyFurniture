@@ -5,6 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+/**
+ * 
+ * @author vaishali
+ *
+ */
 public class UploadPage extends PageBase{
 	
 	@FindBy(xpath="/html/body/app-root/bmf-layout/div[3]/app-footer/footer/div[1]/p[1]/a[4]")

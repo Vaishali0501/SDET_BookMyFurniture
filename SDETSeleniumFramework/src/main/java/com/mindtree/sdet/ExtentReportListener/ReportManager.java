@@ -9,12 +9,13 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
+import com.mindtree.sdet.util.DriverManager;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 
 
 /**
- * @author Anil Pandey
+ * @author vaishali
  *
  */
 public class ReportManager {
@@ -33,17 +34,20 @@ public class ReportManager {
 		return INSTANCE;
 	}
 
-	private static String captureScreenshot(WebDriver driver, String screenshotPath, String ScreenshotName) {
+	private static String captureScreenshot(WebDriver driver, String ScreenshotName) {
 
 		String destinationPath = null;
+		String presentDir = "";
 		try {
-			File destFolder = new File(screenshotPath);
+			//File destFolder = new File(screenshotPath);
+			presentDir = System.getProperty("user.dir");
 			
-			destinationPath = destFolder.getCanonicalPath() + "/" + ScreenshotName + ".png";
+			destinationPath = presentDir + "/screenshots/"+ScreenshotName +".png";
 		
 			// Cast webdriver to Screenshot
 			TakesScreenshot screenshot = (TakesScreenshot) driver;
 
+			System.out.println("Screenshot taken");
 			File sourceFile = screenshot.getScreenshotAs(OutputType.FILE);
 
 			FileUtils.copyFile(sourceFile, new File(destinationPath));
@@ -55,58 +59,17 @@ public class ReportManager {
 		return destinationPath;
 	}
 
-	public static String addLocalScreenshotToReport(WebDriver driver, String screenshotPath, String screenshotName,
+	public static String addLocalScreenshotToReport(WebDriver driver, String screenshotName,
 			ExtentTest logger) {
 		String screenshotImage = null;
 
 		try {
-			String screenshotAbsolutePath = captureScreenshot(driver, screenshotPath, screenshotName);
+			String screenshotAbsolutePath = captureScreenshot(driver, screenshotName);
 			screenshotImage = logger.addScreenCapture(screenshotAbsolutePath);
 		} catch (Exception e) {
 			System.out.println("Error capturing screenshot of application\n" + e.getMessage());
 			e.printStackTrace();
 		}
 		return screenshotImage;
-	}
-
-	public static String addServerScreenShotToReport(WebDriver driver, String screenshotPath, String screenshotName,
-			ExtentTest logger) {
-		String screenImage = null;
-
-		try {
-			String screenShotAbsolutePath = captureScreenshot(driver, screenshotPath, screenshotName);
-			screenShotAbsolutePath.replaceAll("//", "http://");
-			screenImage = logger.addScreenCapture(screenShotAbsolutePath);
-		} catch (Exception e) {
-			System.out.println("Error capturing screenshot of application\n" + e.getMessage());
-			e.printStackTrace();
-		}
-		return screenImage;
-	}
-	
-	/**
-	 * Adds the screen shot to report. This method can be used only with WebDriver
-	 * tests. This is not usable for Desktop applications
-	 *
-	 * @param driver
-	 *            {@link WebDriver}
-	 * @param screenshotPath
-	 *            the screenshot path
-	 * @param ScreenshotName
-	 *            the screenshot name
-	 * @param logger
-	 *            {@link ExtentTest}
-	 * @return {@link HTML} tag with the screenshot path embedded
-	 */
-	public static String addScreenShotToReport(WebDriver driver, String screenshotPath, String ScreenshotName,
-			ExtentTest logger) {
-		String screenImage = null;
-		try {
-			String screenshoAbsolutePath = ReportManager.captureScreenshot(driver, screenshotPath, ScreenshotName);
-			screenImage = logger.addScreenCapture(screenshoAbsolutePath);
-		} catch (Exception e) {
-			System.out.println("Error adding screenshot to report...\n" + e.getMessage());
-		}
-		return screenImage;
 	}
 }
