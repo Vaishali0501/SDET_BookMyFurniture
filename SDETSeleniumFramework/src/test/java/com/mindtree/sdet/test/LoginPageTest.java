@@ -41,7 +41,6 @@ public class LoginPageTest extends PageBase {
 	public void setUp() {
 		homePage = new HomePage();
 		loginPage = homePage.ClickSignUpButton();
-		Reporter.log("Entering the login page", true);
 		log.info("Entering Login Page");
 		log.debug("This is a debug message");
 		log.warn("This is a warning Message");
@@ -58,11 +57,7 @@ public class LoginPageTest extends PageBase {
 
 	@Test(dataProvider = "getFurnitureTestData")
 	public void registerUser(String Name, String MobileNumber, String Email, String Password, Method method) {
-		// loginPage.createAccountClick();
-		// loginPage.enterUserDetails("Sushant", "9872345142",
-		// "sushantbhargav@gmail.com", "Test@123");
 		log.info("**********************Furniture Project*****************");
-		Reporter.log("Furniture Project", true);
 		log.info("**********************Starting Test Case-1**************");
 		log.info("Entering" + Name + "to login to application");
 		log.info("Entering" + MobileNumber + "to login to application");

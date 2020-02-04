@@ -25,6 +25,7 @@ public class HomePageTest extends PageBase {
 	LoginPage loginPage;
 	Logger log = Logger.getLogger(HomePageTest.class);
 	private ExtentTest extentReportLogger = null;
+	private String methodName;
 	private static String testCategory = "Book My Furniture App";
 
 	public HomePageTest() {
@@ -33,6 +34,7 @@ public class HomePageTest extends PageBase {
 
 	@BeforeMethod
 	public void setUp() {
+		System.out.println("In the set up method");
 		this.extentReportLogger = PageBase.extentReportLogger;
 		extentReportLogger.assignCategory(testCategory);
 		homePage = new HomePage();

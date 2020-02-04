@@ -21,6 +21,11 @@ import org.testng.annotations.Test;
 import com.mindtree.sdet.pages.HomePage;
 import com.mindtree.sdet.pages.PageBase;
 
+/**
+ * 
+ * @author vaishali
+ *
+ */
 public class MobileEmulationTest extends PageBase{
 	
 	

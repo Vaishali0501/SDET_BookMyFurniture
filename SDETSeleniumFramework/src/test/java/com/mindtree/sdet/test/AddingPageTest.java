@@ -11,6 +11,11 @@ import com.mindtree.sdet.pages.LoginPage;
 import com.mindtree.sdet.pages.PageBase;
 import com.mindtree.sdet.util.ConfigReader;
 
+/**
+ * 
+ * @author vaishali
+ *
+ */
 public class AddingPageTest extends PageBase{
 	
 	HomePage homePage;

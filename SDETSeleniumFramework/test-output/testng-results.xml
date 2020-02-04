@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
-    <line>
-      <![CDATA[Entering the login page]]>
-    </line>
-    <line>
-      <![CDATA[Furniture Project]]>
-    </line>
   </reporter-output>
-  <suite name="Suite" duration-ms="12585" started-at="2020-02-03T05:52:28Z" finished-at="2020-02-03T05:52:40Z">
+  <suite name="Suite" duration-ms="17550" started-at="2020-02-04T16:20:14Z" finished-at="2020-02-04T16:20:32Z">
     <groups>
     </groups>
-    <test name="ChromeTest" duration-ms="12585" started-at="2020-02-03T05:52:28Z" finished-at="2020-02-03T05:52:40Z">
-      <class name="com.mindtree.sdet.test.LoginPageTest">
-        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.mindtree.sdet.test.LoginPageTest@4678c730]" name="setUp" is-config="true" duration-ms="6903" started-at="2020-02-02T23:52:28Z" finished-at="2020-02-02T23:52:35Z">
+    <test name="ChromeTest" duration-ms="17550" started-at="2020-02-04T16:20:14Z" finished-at="2020-02-04T16:20:32Z">
+      <class name="com.mindtree.sdet.test.SellingPageTest">
+        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.mindtree.sdet.test.SellingPageTest@6767c1fc]" name="setUp" is-config="true" duration-ms="10759" started-at="2020-02-04T10:20:14Z" finished-at="2020-02-04T10:20:25Z">
           <params>
             <param index="0">
               <value>
@@ -34,63 +28,30 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.mindtree.sdet.test.LoginPageTest@4678c730]" name="beforeMethod" is-config="true" duration-ms="2" started-at="2020-02-02T23:52:35Z" finished-at="2020-02-02T23:52:35Z">
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.mindtree.sdet.test.SellingPageTest@6767c1fc]" name="beforeMethod" is-config="true" duration-ms="6" started-at="2020-02-04T10:20:25Z" finished-at="2020-02-04T10:20:25Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.mindtree.sdet.test.LoginPageTest.registerUser(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method)]]>
+                <![CDATA[public void com.mindtree.sdet.test.SellingPageTest.clickbuyChairButton()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.mindtree.sdet.test.LoginPageTest@4678c730]" name="setUp" is-config="true" duration-ms="1661" started-at="2020-02-02T23:52:35Z" finished-at="2020-02-02T23:52:37Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.mindtree.sdet.test.SellingPageTest@6767c1fc]" name="setUp" is-config="true" duration-ms="36" started-at="2020-02-04T10:20:25Z" finished-at="2020-02-04T10:20:25Z">
           <reporter-output>
-            <line>
-              <![CDATA[Entering the login page]]>
-            </line>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="registerUser(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.mindtree.sdet.test.LoginPageTest@4678c730]" name="registerUser" duration-ms="3328" started-at="2020-02-02T23:52:37Z" data-provider="getFurnitureTestData" finished-at="2020-02-02T23:52:40Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Mistaa Paddu]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[2112322343]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[masterpaddu@gmail.com]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Test@1234]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[public void com.mindtree.sdet.test.LoginPageTest.registerUser(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method)]]>
-              </value>
-            </param>
-          </params>
+        <test-method status="PASS" signature="clickbuyChairButton()[pri:0, instance:com.mindtree.sdet.test.SellingPageTest@6767c1fc]" name="clickbuyChairButton" duration-ms="6047" started-at="2020-02-04T10:20:25Z" finished-at="2020-02-04T10:20:31Z">
           <reporter-output>
-            <line>
-              <![CDATA[Furniture Project]]>
-            </line>
           </reporter-output>
-        </test-method> <!-- registerUser -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.mindtree.sdet.test.LoginPageTest@4678c730]" name="tearDown" is-config="true" duration-ms="427" started-at="2020-02-02T23:52:40Z" finished-at="2020-02-02T23:52:40Z">
+        </test-method> <!-- clickbuyChairButton -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.mindtree.sdet.test.SellingPageTest@6767c1fc]" name="tearDown" is-config="true" duration-ms="672" started-at="2020-02-04T10:20:31Z" finished-at="2020-02-04T10:20:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.mindtree.sdet.test.LoginPageTest -->
+      </class> <!-- com.mindtree.sdet.test.SellingPageTest -->
     </test> <!-- ChromeTest -->
   </suite> <!-- Suite -->
 </testng-results>
