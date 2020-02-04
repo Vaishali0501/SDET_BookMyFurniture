@@ -54,12 +54,23 @@ public class CommonMethodUtility {
 		}
 	}
 	
+	
+	/**
+	 * Checking if element is enabled or not
+	 * @param element
+	 * @return
+	 */
+	public boolean isElementEnabled(WebElement element) {
+		return element.isEnabled();
+	}
+	
 	/**
 	 * Method to check click using By location
 	 * @param locator
 	 * @param driver
 	 * @return
 	 */
+	
 	public boolean click(By locator,WebDriver driver) {
 		try {
 			driver.findElement(locator).click();
@@ -130,6 +141,26 @@ public class CommonMethodUtility {
 			log.error(e.getMessage());
 			return false;
 		}
+	}
+	
+	
+	/**
+	 * 
+	 * @param element
+	 * @return
+	 */
+	public String getTextForElement(WebElement element) {
+		return element.getText();
+	}
+	
+	
+	/**
+	 * Get current page title
+	 * @param driver
+	 * @return
+	 */
+	public String getTitleForDriver(WebDriver driver) {
+		return driver.getTitle();
 	}
 	
 	

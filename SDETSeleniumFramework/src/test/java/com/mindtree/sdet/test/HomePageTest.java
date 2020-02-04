@@ -34,7 +34,7 @@ public class HomePageTest extends PageBase {
 
 	@BeforeMethod
 	public void setUp() {
-		System.out.println("In the set up method");
+		log.info("In the set up method, HomePageTest");
 		this.extentReportLogger = PageBase.extentReportLogger;
 		extentReportLogger.assignCategory(testCategory);
 		homePage = new HomePage();

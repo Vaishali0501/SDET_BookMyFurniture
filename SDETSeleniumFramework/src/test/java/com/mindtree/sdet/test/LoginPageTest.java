@@ -21,18 +21,21 @@ import com.relevantcodes.extentreports.LogStatus;
 
 public class LoginPageTest extends PageBase {
 
-	HomePage homePage;
-	LoginPage loginPage;
-	LandingPage landingPage;
-	XLSWorker xlsWorker;
-	Screenshot screenshot;
-	String sheetName = "customerinfo";
-	ConfigReader configReader;
-	Logger log = Logger.getLogger(LoginPageTest.class);
-	private ExtentTest extentReportLogger = null;
-	private String methodName;
+	private static HomePage homePage;
+	private static LoginPage loginPage;
+	private static LandingPage landingPage;
+	private static XLSWorker xlsWorker;
+	private static Screenshot screenshot;
+	private static String sheetName = "customerinfo";
+	private static ConfigReader configReader;
+	private static ExtentTest extentReportLogger = null;
+	private static String methodName;
 	private static String testCategory = "Book My Furniture App";
 
+	
+	Logger log = Logger.getLogger(LoginPageTest.class);
+	
+	
 	public LoginPageTest() {
 		super();
 	}
@@ -56,7 +59,7 @@ public class LoginPageTest extends PageBase {
 	}
 
 	@Test(dataProvider = "getFurnitureTestData")
-	public void registerUser(String Name, String MobileNumber, String Email, String Password, Method method) {
+	public void registerUserTest(String Name, String MobileNumber, String Email, String Password, Method method) {
 		log.info("**********************Furniture Project*****************");
 		log.info("**********************Starting Test Case-1**************");
 		log.info("Entering" + Name + "to login to application");

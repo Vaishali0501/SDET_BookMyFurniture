@@ -17,6 +17,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -48,7 +49,7 @@ public abstract class PageBase {
 	public static Properties prop;
 	public static EventFiringWebDriver event_driver;
 	public static EventListenerWebDriver eventListener;
-	public static ConfigReader configReader;							  	
+	public static ConfigReader configReader;
 	public static String baseUrl;
 	public static String reportFile = "";
 	public static String testMethodName = null;
@@ -59,13 +60,10 @@ public abstract class PageBase {
 	public static final CommonMethodUtility commonMethods = new CommonMethodUtility();
 	public static final InitializeDriver iDriver = new InitializeDriver();
 	DriverManager dm = new DriverManager();
-	
+
 	// **To generate the logs
 	Logger log = Logger.getLogger(PageBase.class);
-	
-	
-	
-	
+
 	/***
 	 * 
 	 * @param browser
@@ -76,22 +74,20 @@ public abstract class PageBase {
 	@Parameters({ "browser", "baseUrl", "mobile" })
 	@BeforeClass(alwaysRun = true)
 	public void setUp(String browser, String baseUrlProperty, String mobile) throws Exception {
-		System.out.println("I am here");
 		this.browserString = browser;
 		String filePath = System.getProperty("user.dir") + "/src/main/resources/data/config.properties";
 		configReader = new ConfigReader(filePath);
-		
+
 		if (mobile.equalsIgnoreCase("no")) {
-		this.driver = iDriver.initialize(browser, baseUrlProperty, mobile);
+			this.driver = iDriver.initialize(browser, baseUrlProperty, mobile);
+		} else if (mobile.equalsIgnoreCase("yes")) {
+			this.driverMobile = getWebDriverMobile(browser, baseUrlProperty);
 		}
-		else if(mobile.equalsIgnoreCase("yes")) {
-			this.driverMobile = getWebDriverMobile(browser,baseUrlProperty);
-		}
-		//beforeMethod(browser,method);
+		// beforeMethod(browser,method);
 		reportFile = "./test-resources/testreports/testReporter.html";
 		reporter = ReportManager.getReporter(reportFile, true);
 	}
-	
+
 	/***
 	 * 
 	 * @param method
@@ -99,38 +95,35 @@ public abstract class PageBase {
 	@BeforeMethod
 	public void beforeMethod(Method method) {
 		try {
-			extentReportLogger = reporter.startTest(browserString.toUpperCase() + " - "+ method.getName());
+			extentReportLogger = reporter.startTest(browserString.toUpperCase() + " - " + method.getName());
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
 		}
 	}
-	
+
 	/***
 	 * 
 	 * @param password
 	 * @param username
 	 */
-	public void setConfigProperties(String password,String username) {
+	public void setConfigProperties(String password, String username) {
 		password = configReader.getPassword();
 		username = configReader.getUsername();
 	}
 
-
-	
 	/***
 	 * 
 	 * @param browser
 	 * @return
 	 */
-	public ChromeDriver getWebDriverMobile(String browser,String baseUrlProperty) {
-		
-		//Getting Mobile Browser Driver
-		ChromeDriver driver = mobObj.getMobileDriver(browser, log, driverPath,baseUrlProperty);
+	public ChromeDriver getWebDriverMobile(String browser, String baseUrlProperty) {
+
+		// Getting Mobile Browser Driver
+		ChromeDriver driver = mobObj.getMobileDriver(browser, log, driverPath, baseUrlProperty);
 		return driver;
 	}
 
-	
 	/**
 	 * Checks if the element presents on the page and visible
 	 * 
@@ -143,9 +136,9 @@ public abstract class PageBase {
 		return commonMethods.isElementPresent(element);
 	}
 
-	
 	/**
 	 * Upload file method calling from common method utility
+	 * 
 	 * @param uploadElement
 	 * @return
 	 */
@@ -154,19 +147,74 @@ public abstract class PageBase {
 		return commonMethods.uploadFile(uploadElement);
 	}
 
-	
 	/**
 	 * This method gets new window title from Common Method Utility class
+	 * 
 	 * @param aboutClick
 	 * @return
 	 */
 	public String getNewWindowTitle(WebElement aboutClick) {
-		
+
 		return commonMethods.switchWindows(driver, aboutClick);
 	}
 
 	/**
+	 * Click on element
+	 * 
+	 * @param element
+	 * @return
+	 */
+	public boolean clickElement(WebElement element) {
+
+		return commonMethods.click(element);
+	}
+
+	
+	/**
+	 * Check if element is enabled
+	 * @param element
+	 * @return
+	 */
+	public boolean checkElementEnabled(WebElement element) {
+		return commonMethods.isElementEnabled(element);
+	}
+	
+	
+	/**
+	 * Get element text
+	 * 
+	 * @param element
+	 * @return
+	 */
+	public String getTextForElement(WebElement element) {
+		return commonMethods.getTextForElement(element);
+	}
+
+	
+	/**
+	 * Used to send keys to WebElement
+	 * @param element
+	 * @param data
+	 * @return
+	 */
+	public boolean sendKeysToElement(WebElement element,String data) {
+		return commonMethods.sendKeys(element, data);
+	}
+	
+	
+	/**
+	 * Return the title of the page
+	 * @param driverNew
+	 * @return
+	 */
+	public String getTitleForDriver(WebDriver driverNew) {
+		return commonMethods.getTitleForDriver(driverNew);
+	}
+	
+	
+	/**
 	 * AfterClass method for driver cleanup and flush the logs into ExtentReport
+	 * 
 	 * @throws Exception
 	 */
 	@AfterClass(alwaysRun = true)
@@ -175,6 +223,11 @@ public abstract class PageBase {
 		commonMethods.cleanUp(driver, driverMobile);
 	}
 	
+	@AfterMethod(alwaysRun = true)
+	public void tearDownAfterMethod() throws Exception {
+		commonMethods.cleanUp(driver, driverMobile);
+	}
+
 	/***
 	 * This is reporter method, to put the logs into ExtentReport.
 	 */
@@ -182,7 +235,5 @@ public abstract class PageBase {
 			boolean testStatus) {
 		testReporter.reportTestCaseStatus(driver, logger, methodName, testStatus);
 	}
-	
-	
-	
+
 }

@@ -31,7 +31,7 @@ public class AddingPageTest extends PageBase{
 		aboutPage = new AboutPage();		
 		homePage = new HomePage();
 		loginPage=homePage.ClickSignUpButton();
-		landingPage = loginPage.SignIn(configReader.getUsername(),configReader.getPassword());
+		loginPage.signInUser(configReader.getUsername(),configReader.getPassword());
 	}
 	
 	

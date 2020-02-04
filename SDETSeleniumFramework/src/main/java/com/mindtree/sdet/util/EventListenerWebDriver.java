@@ -19,15 +19,7 @@ public class EventListenerWebDriver extends PageBase implements WebDriverEventLi
 
 	public void afterNavigateTo(String url, WebDriver driver) {
 		System.out.println("Navigated to:'" + url + "'");
-		try {
-			
-			System.out.println("+++++++++++++++++++++");
-			Screenshot.takingScreenshotErrorMethod("afterNavigateTo");
-			
-		}catch(Exception e) {
-			
-		e.printStackTrace();
-		}
+		
 	}
 
 	public void beforeChangeValueOf(WebElement element, WebDriver driver) {

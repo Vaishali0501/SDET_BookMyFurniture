@@ -7,30 +7,37 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-
+/**
+ * 
+ * @author vaishali
+ *
+ */
 public class SellingPage extends PageBase{
 
+	
+	private static String finalOrderText = "";
+	
 	//Page Factory -OR
-			@FindBy(xpath="/html/body/app-root/bmf-layout/div[2]/product-catalogue/div/div/div/div[3]/div[2]/div/div[1]/div/button")
+			@FindBy(xpath="//img[contains(@src, '4AAQSkZJRgABAQEAYABgAAD')]")
 			WebElement chairSelect;
 			
 			//@FindBy(xpath="//button[contains(text(),'All Furnitures')]")
-			@FindBy(xpath="/html/body/app-root/bmf-layout/div[2]/selected-product/div/div[1]/div[1]/div[2]/div[1]/div[2]/button")
+			@FindBy(xpath="//button[text() = \"Buy Now \"]")
 			WebElement buyChairButton;
 			
-			@FindBy(xpath="/html/body/app-root/bmf-layout/div[2]/single-order-confirm/div/div/div[2]/div[3]/div[2]/tr[4]/td/button")
+			@FindBy(xpath="//button[@type='button' and text() = \"Place Order\"]")
 			WebElement placeOrderButton;
 			
-			@FindBy(xpath="/html/body/app-root/bmf-layout/div[2]/single-order-confirm/div/div/div[2]/div[2]/p-confirmdialog/div/div[3]/button[1]/span[2]")
+			@FindBy(xpath="//span[text() = \"Yes\"]")
 			WebElement confirmYesButton;
 			
-			@FindBy(xpath="/html/body/app-root/bmf-layout/div[2]/app-payment-layout/div/div/div[1]/div[3]/p-radiobutton/div/div[2]/span")
+			@FindBy(xpath="//label[text() = \"Cash\"]//preceding::span[1]")
 			WebElement selectRadioButton;
 			
-			@FindBy(xpath="/html/body/app-root/bmf-layout/div[2]/app-payment-layout/div/div/div[2]/button")
+			@FindBy(xpath="//button[text() = \" Place Order \"]")
 			WebElement placeOrderFinalButton;
 			
-			@FindBy(xpath="/html/body/app-root/bmf-layout/div[2]/app-payment-layout/div/p-card/div/div/div/div")
+			@FindBy(xpath="//h2[text()]")
 			WebElement finalText;
 
 			
@@ -44,18 +51,19 @@ public class SellingPage extends PageBase{
 			
 			public String buyChair()
 			{
-				//element.click();
 				
+				clickElement(chairSelect);
+				clickElement(buyChairButton);
+				clickElement(placeOrderButton);
+				clickElement(confirmYesButton);
+				clickElement(selectRadioButton);
+				clickElement(placeOrderFinalButton);
 				
-				chairSelect.click();
-				buyChairButton.click();
-				placeOrderButton.click();
-				confirmYesButton.click();
-				selectRadioButton.click();
-				placeOrderFinalButton.click();
-				String ffText = finalText.getText();
-				System.out.println(ffText);
-				return ffText;
+				finalOrderText = getTextForElement(finalText);
+				
+				//String ffText = finalText.getText();
+				log.info(finalOrderText);
+				return finalOrderText;
 			}
 
 }

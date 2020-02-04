@@ -4,33 +4,37 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+/**
+ * 
+ * @author vaishali
+ *
+ */
+public class LandingPage extends PageBase {
 
-public class LandingPage extends PageBase{
-	
-	//Page Factory -OR
-		@FindBy(xpath="//span[contains(text(),'Hi')]")
-		WebElement welcomeText;
-		
-		//@FindBy(xpath="//button[contains(text(),'All Furnitures')]")
-		@FindBy(xpath="/html/body/app-root/bmf-layout/div[2]/app-homepage/div/home-category-list/div[1]/div/div/div[1]/div/div")
-		WebElement allFurnitureBtn;
-		
-		//Initializing the Page Objects
-		public LandingPage(){		
-			PageFactory.initElements(driver, this);		
-		}
+	// Page Factory -OR
+	@FindBy(xpath = "//span[contains(text(),'Hi')]")
+	WebElement welcomeText;
 
-		//Actions
-		public String validateWelcomeText() {		
-			String welText=welcomeText.getText();
-			return welText;
-		}
+	@FindBy(xpath = "//*[contains(@class,'circle-text-chair')]")
+	WebElement allChairButton;
+
+	// Initializing the Page Objects
+	public LandingPage() {
+		PageFactory.initElements(driver, this);
+	}
+
+	// Actions
+	public String validateWelcomeText() {
 		
-		public SellingPage clickAllFurnBtn()
-		{
-			//element.click();
-			allFurnitureBtn.click();
-			return new SellingPage();
-		}
+		System.out.println("Inside validate welcome text ====");
+		return getTextForElement(welcomeText);
+
+	}
+
+	public SellingPage clickAllFurnBtn() {
+
+		clickElement(allChairButton);
+		return new SellingPage();
+	}
 
 }
