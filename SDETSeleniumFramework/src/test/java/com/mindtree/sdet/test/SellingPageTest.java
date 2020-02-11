@@ -69,13 +69,13 @@ public class SellingPageTest extends PageBase {
 	public void clickbuyChairButton(Method method)
 	{
 		// Click sign-up button
-		loginPage=homePage.ClickSignUpButton();
+		loginPage=homePage.ClickSignUpButton(null);
 		
 		// Entering Credentials and Logging in
 		loginPage.signInUser(configReader.getUsername(),configReader.getPassword());
 		
 		//See all furnitures
-		sellingPage=landingPage.clickAllFurnBtn();
+		sellingPage=landingPage.clickAllFurnBtn(null);
 		
 		//Buying chair
 		String fftextRd = sellingPage.buyChair();

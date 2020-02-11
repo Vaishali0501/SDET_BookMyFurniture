@@ -87,18 +87,17 @@ public class CommonMethodUtility {
 	 * @param webElement
 	 * @return
 	 */
-	public boolean click(WebElement webElement) {
+	public boolean clickButton(WebElement clickBtn) {
 		try {
-			webElement.click();
+			clickBtn.click();
 			return true;
-		} catch (NoSuchElementException e) {
-			log.error(e.getMessage());
-			return false;
-		}catch (Exception e) {
+		} catch (Exception e) {
 			log.error(e.getMessage());
 			return false;
 		}
 	}
+
+	
 
 //sendKeys method checks the presence the webelement using try/catch block and performs operation if available.
 	

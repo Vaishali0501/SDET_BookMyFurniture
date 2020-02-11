@@ -45,22 +45,26 @@ public abstract class PageBase {
 	public static WebDriver driver;
 	public static ExtentReports reporter = null;
 	public static ExtentTest extentReportLogger = null;
-	public static ChromeDriver driverMobile;
+	public ChromeDriver driverMobile;
 	public static Properties prop;
 	public static EventFiringWebDriver event_driver;
 	public static EventListenerWebDriver eventListener;
 	public static ConfigReader configReader;
-	public static String baseUrl;
+	public String baseUrlMain;
+	public String mobile;
 	public static String reportFile = "";
 	public static String testMethodName = null;
-	public static String browserString = "";
+	public String browserString = "";
 	public static String driverPath = System.getProperty("user.dir") + "/src/main/resources/drivers/";
 	public static final TestCaseReporterUtil testReporter = new TestCaseReporterUtil();
 	public static final MobileBrowserManager mobObj = new MobileBrowserManager();
 	public static final CommonMethodUtility commonMethods = new CommonMethodUtility();
 	public static final InitializeDriver iDriver = new InitializeDriver();
-	DriverManager dm = new DriverManager();
+	
 
+	//Initialization
+	DriverManager dm = new DriverManager();
+	
 	// **To generate the logs
 	Logger log = Logger.getLogger(PageBase.class);
 
@@ -75,33 +79,32 @@ public abstract class PageBase {
 	@BeforeClass(alwaysRun = true)
 	public void setUp(String browser, String baseUrlProperty, String mobile) throws Exception {
 		this.browserString = browser;
+		this.baseUrlMain = baseUrlProperty;
+		this.mobile = mobile;
+	}
+	
+	
+	/**
+	 * 
+	 * @param method
+	 * @throws Exception
+	 */
+	@BeforeMethod(alwaysRun = true)
+	public void driverSetUp(Method method) throws Exception {
 		String filePath = System.getProperty("user.dir") + "/src/main/resources/data/config.properties";
 		configReader = new ConfigReader(filePath);
 
 		if (mobile.equalsIgnoreCase("no")) {
-			this.driver = iDriver.initialize(browser, baseUrlProperty, mobile);
+			PageBase.driver = iDriver.initialize(browserString, baseUrlMain, mobile);
 		} else if (mobile.equalsIgnoreCase("yes")) {
-			this.driverMobile = getWebDriverMobile(browser, baseUrlProperty);
+			this.driverMobile = getWebDriverMobile(browserString, baseUrlMain);
 		}
 		// beforeMethod(browser,method);
 		reportFile = "./test-resources/testreports/testReporter.html";
 		reporter = ReportManager.getReporter(reportFile, true);
+		extentReportLogger = reporter.startTest(browserString.toUpperCase() + " - " + method.getName());
 	}
-
-	/***
-	 * 
-	 * @param method
-	 */
-	@BeforeMethod
-	public void beforeMethod(Method method) {
-		try {
-			extentReportLogger = reporter.startTest(browserString.toUpperCase() + " - " + method.getName());
-		} catch (Exception e) {
-
-			e.printStackTrace();
-		}
-	}
-
+	
 	/***
 	 * 
 	 * @param password
@@ -164,11 +167,10 @@ public abstract class PageBase {
 	 * @param element
 	 * @return
 	 */
-	public boolean clickElement(WebElement element) {
-
-		return commonMethods.click(element);
+	public boolean clickElementButton(WebElement element)
+	{
+		return commonMethods.clickButton(element);
 	}
-
 	
 	/**
 	 * Check if element is enabled
@@ -220,7 +222,6 @@ public abstract class PageBase {
 	@AfterClass(alwaysRun = true)
 	public void tearDown() throws Exception {
 		reporter.flush();
-		commonMethods.cleanUp(driver, driverMobile);
 	}
 	
 	@AfterMethod(alwaysRun = true)

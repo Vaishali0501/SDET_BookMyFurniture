@@ -90,7 +90,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -101,7 +101,12 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.mindtree.sdet.test.SellingPageTest" hash-for-method="clickbuyChairButton">clickbuyChairButton</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.mindtree.sdet.test.HomePageTest" hash-for-method="clickSignInTest(public void com.mindtree.sdet.test.HomePageTest.clickSignInTest(java.lang.reflect.Method) throws jav...)">clickSignInTest(public void com.mindtree.sdet.test.HomePageTest.clickSignInTest(java.lang.reflect.Method) throws jav...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.mindtree.sdet.test.HomePageTest" hash-for-method="homePageTitleTest(public void com.mindtree.sdet.test.HomePageTest.homePageTitleTest(java.lang.reflect.Method) throws j...)">homePageTitleTest(public void com.mindtree.sdet.test.HomePageTest.homePageTitleTest(java.lang.reflect.Method) throws j...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -119,14 +124,23 @@
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.mindtree.sdet.test.SellingPageTest</span>
+              <span class="class-name">com.mindtree.sdet.test.HomePageTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="clickbuyChairButton">
-                  </a> <!-- clickbuyChairButton -->
-                  <span class="method-name">clickbuyChairButton</span>
+                  <a name="clickSignInTest(public void com.mindtree.sdet.test.HomePageTest.clickSignInTest(java.lang.reflect.Method) throws jav...)">
+                  </a> <!-- clickSignInTest(public void com.mindtree.sdet.test.HomePageTest.clickSignInTest(java.lang.reflect.Method) throws jav...) -->
+                  <span class="method-name">clickSignInTest</span>
+                  <span class="parameters">(public void com.mindtree.sdet.test.HomePageTest.clickSignInTest(java.lang.reflect.Method) throws java.lang.InterruptedException)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="homePageTitleTest(public void com.mindtree.sdet.test.HomePageTest.homePageTitleTest(java.lang.reflect.Method) throws j...)">
+                  </a> <!-- homePageTitleTest(public void com.mindtree.sdet.test.HomePageTest.homePageTitleTest(java.lang.reflect.Method) throws j...) -->
+                  <span class="method-name">homePageTitleTest</span>
+                  <span class="parameters">(public void com.mindtree.sdet.test.HomePageTest.homePageTitleTest(java.lang.reflect.Method) throws java.lang.InterruptedException)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -140,13 +154,13 @@
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite name=&quot;Suite&quot; parallel=&quot;tests&quot;&gt;
+&lt;suite thread-count=&quot;2&quot; name=&quot;Suite&quot;&gt;
   &lt;test name=&quot;ChromeTest&quot;&gt;
     &lt;parameter name=&quot;baseUrl&quot; value=&quot;http://okmry52647dns.eastus.cloudapp.azure.com:9090&quot;/&gt;
     &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
     &lt;parameter name=&quot;mobile&quot; value=&quot;no&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.mindtree.sdet.test.SellingPageTest&quot;/&gt;
+      &lt;class name=&quot;com.mindtree.sdet.test.HomePageTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- ChromeTest --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -186,16 +200,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'clickbuyChairButton')
-data.setCell(0, 2, 'com.mindtree.sdet.test.SellingPageTest')
-data.setCell(0, 3, 6047);
+data.setCell(0, 1, 'clickSignInTest')
+data.setCell(0, 2, 'com.mindtree.sdet.test.HomePageTest')
+data.setCell(0, 3, 5175);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'homePageTitleTest')
+data.setCell(1, 2, 'com.mindtree.sdet.test.HomePageTest')
+data.setCell(1, 3, 4713);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 6 seconds</span>
+              <span class="suite-total-time">Total running time: 9 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -221,26 +239,46 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.mindtree.sdet.test.SellingPageTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.mindtree.sdet.test.HomePageTest</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">setUp(chrome, http://okmry52647dns.eastus.cloudapp.azure.com:9090, no)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(public void com.mindtree.sdet.test.SellingPageTest.clickbuyChairButton())</span>
-                <span class="method-start">10775 ms</span>
+                <span class="method-name">driverSetUp(public void com.mindtree.sdet.test.HomePageTest.homePageTitleTest(java.lang.reflect.Method) throws j...)</span>
+                <span class="method-start">18 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">10781 ms</span>
+                <span class="method-start">7463 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">clickbuyChairButton</span>
-                <span class="method-start">10817 ms</span>
+                <span class="method-name">homePageTitleTest(public void com.mindtree.sdet.test.HomePageTest.homePageTitleTest(java.lang.reflect.Method) throws j...)</span>
+                <span class="method-start">7492 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownAfterMethod</span>
+                <span class="method-start">12206 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">driverSetUp(public void com.mindtree.sdet.test.HomePageTest.clickSignInTest(java.lang.reflect.Method) throws jav...)</span>
+                <span class="method-start">12311 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">18338 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">clickSignInTest(public void com.mindtree.sdet.test.HomePageTest.clickSignInTest(java.lang.reflect.Method) throws jav...)</span>
+                <span class="method-start">18339 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownAfterMethod</span>
+                <span class="method-start">23515 ms</span>
+              </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">16865 ms</span>
+                <span class="method-start">23621 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

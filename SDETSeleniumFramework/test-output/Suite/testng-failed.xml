@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]" parallel="tests">
+<suite thread-count="2" name="Failed suite [Suite]">
   <parameter name="baseUrl" value="http://okmry52647dns.eastus.cloudapp.azure.com:9090"/>
-  <parameter name="browser" value="chrome"/>
+  <parameter name="browser" value="Firefox"/>
   <parameter name="mobile" value="no"/>
-  <listeners>
-    <listener class-name="com.mindtree.sdet.ExtentReportListener.ExtentReportNG"/>
-  </listeners>
-  <test name="ChromeTest(failed)" parallel="tests">
+  <test name="FirefoxTest(failed)">
     <parameter name="baseUrl" value="http://okmry52647dns.eastus.cloudapp.azure.com:9090"/>
-    <parameter name="browser" value="chrome"/>
+    <parameter name="browser" value="Firefox"/>
     <parameter name="mobile" value="no"/>
     <classes>
-      <class name="com.mindtree.sdet.test.LoginPageTest">
+      <class name="com.mindtree.sdet.test.HomePageTest">
         <methods>
-          <include name="registerUser"/>
+          <include name="homePageTitleTest"/>
           <include name="setUp"/>
           <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="clickSignInTest"/>
+          <include name="tearDownAfterMethod"/>
+          <include name="tearDownAfterMethod"/>
+          <include name="driverSetUp"/>
+          <include name="driverSetUp"/>
         </methods>
-      </class> <!-- com.mindtree.sdet.test.LoginPageTest -->
+      </class> <!-- com.mindtree.sdet.test.HomePageTest -->
     </classes>
-  </test> <!-- ChromeTest(failed) -->
+  </test> <!-- FirefoxTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

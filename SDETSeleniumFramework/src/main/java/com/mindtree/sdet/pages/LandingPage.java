@@ -1,8 +1,13 @@
 package com.mindtree.sdet.pages;
 
+import java.lang.reflect.Method;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+
+import com.relevantcodes.extentreports.LogStatus;
 
 /**
  * 
@@ -11,6 +16,7 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class LandingPage extends PageBase {
 
+	String wt = null;
 	// Page Factory -OR
 	@FindBy(xpath = "//span[contains(text(),'Hi')]")
 	WebElement welcomeText;
@@ -24,16 +30,37 @@ public class LandingPage extends PageBase {
 	}
 
 	// Actions
-	public String validateWelcomeText() {
+	public String validateWelcomeText(Method method) {
 		
-		System.out.println("Inside validate welcome text ====");
-		return getTextForElement(welcomeText);
+	//	System.out.println("Inside validate welcome text ====");
+		 wt = getTextForElement(welcomeText);
+		
+		if (wt.contains("Hi,")) {
+			extentReportLogger.log(LogStatus.PASS, "The testcase is passed ===>>");
+			PageBase.reportTestCaseStatus(driver, extentReportLogger, method.getName(), true);
+			return wt;
+		} else {
+			extentReportLogger.log(LogStatus.FAIL, "The testcase has failed ===>>");
+			PageBase.reportTestCaseStatus(driver, extentReportLogger, method.getName(), false);
+		}
+		
+		return wt;
 
 	}
 
-	public SellingPage clickAllFurnBtn() {
+	public SellingPage clickAllFurnBtn(Method method) {
 
-		clickElement(allChairButton);
+		if(clickElementButton(allChairButton))
+		{
+		
+		extentReportLogger.log(LogStatus.PASS, "The testcase is passed ===>>");
+		PageBase.reportTestCaseStatus(driver, extentReportLogger, method.getName(), true);
+		}
+		else
+		{
+		extentReportLogger.log(LogStatus.FAIL, "The testcase is passed ===>>");
+		PageBase.reportTestCaseStatus(driver, extentReportLogger, method.getName(), false);
+		}
 		return new SellingPage();
 	}
 

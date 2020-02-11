@@ -1,18 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Suite" parallel="tests">
- 
- 
-  <test name="ChromeTest">
-	  	<!-- Test Level Parameters -->
-    	<parameter name="browser" value="chrome"/>
-  	<parameter name="baseUrl" value="http://okmry52647dns.eastus.cloudapp.azure.com:9090"/>
-  	<parameter name="mobile" value="no"/>
-	    <classes>
-	      <class name="com.mindtree.sdet.test.SellingPageTest"/>
-	     
-	    </classes>
-	    
-	    
-  </test> 
- 
+<suite name="Suite" parallel="suit" thread-count="2">
+
+
+	<test name="ChromeTest">
+
+		<!-- Test Level Parameters -->
+		<parameter name="browser" value="chrome" />
+		<parameter name="baseUrl"
+			value="http://okmry52647dns.eastus.cloudapp.azure.com:9090" />
+		<parameter name="mobile" value="no" />
+
+		<classes>
+		<class name="com.mindtree.sdet.test.HomePageTest" />
+			<!--  <class name="com.mindtree.sdet.test.LoginPageTest" />
+			<class name="com.mindtree.sdet.test.LandingPageTest" />-->
+			
+
+		</classes>
+
+
+	</test>
+	<!-- <test name="FirefoxTest">
+
+		 Test Level Parameters
+		<parameter name="browser" value="Firefox" />
+		<parameter name="baseUrl"
+			value="http://okmry52647dns.eastus.cloudapp.azure.com:9090" />
+		<parameter name="mobile" value="no" />
+
+		<classes>
+		<class name="com.mindtree.sdet.test.HomePageTest" />
+			  <class name="com.mindtree.sdet.test.LoginPageTest" />
+			<class name="com.mindtree.sdet.test.LandingPageTest" />
+			
+
+		</classes>
+
+
+	</test>-->
+
 </suite> 

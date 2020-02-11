@@ -41,13 +41,10 @@ public class LoginPageTest extends PageBase {
 	}
 
 	@BeforeMethod
-	public void setUp() {
+	public void setUp(Method method) {
 		homePage = new HomePage();
-		loginPage = homePage.ClickSignUpButton();
+		loginPage = homePage.ClickSignUpButton(method);
 		log.info("Entering Login Page");
-		log.debug("This is a debug message");
-		log.warn("This is a warning Message");
-		log.fatal("This is a fatal error");
 		this.extentReportLogger = PageBase.extentReportLogger;
 		extentReportLogger.assignCategory(testCategory);
 
@@ -59,16 +56,12 @@ public class LoginPageTest extends PageBase {
 	}
 
 	@Test(dataProvider = "getFurnitureTestData")
-	public void registerUserTest(String Name, String MobileNumber, String Email, String Password, Method method) {
-		log.info("**********************Furniture Project*****************");
-		log.info("**********************Starting Test Case-1**************");
+	public void registerUserTest(String Name, String MobileNumber, String Email, String Password, Method method) {		
 		log.info("Entering" + Name + "to login to application");
 		log.info("Entering" + MobileNumber + "to login to application");
 		log.info("Entering" + Password + "to login to application");
-		loginPage.enterUserDetails(Name, MobileNumber, Email, Password);
-		log.info("**********************Ending Test Case-1****************");
-		extentReportLogger.log(LogStatus.PASS, "The testcase is passed ===>>");
-		PageBase.reportTestCaseStatus(driver, extentReportLogger, method.getName(), true);
+		loginPage.enterUserDetails(Name, MobileNumber, Email, Password, method);
+
 	}
 
 }

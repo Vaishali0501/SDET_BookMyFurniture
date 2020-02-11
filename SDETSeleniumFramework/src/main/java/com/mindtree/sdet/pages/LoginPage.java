@@ -1,5 +1,7 @@
 package com.mindtree.sdet.pages;
 
+import java.lang.reflect.Method;
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,6 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.mindtree.sdet.test.HomePageTest;
+import com.relevantcodes.extentreports.LogStatus;
 
 public class LoginPage extends PageBase {
 
@@ -32,8 +35,7 @@ public class LoginPage extends PageBase {
 
 	@FindBy(xpath = "//h2[contains(text(),\" Sign in to your account \")]//following :: input[2]")
 	WebElement enterPassword;
-	
-	
+
 	@FindBy(xpath = "//button[@type='submit' and text()='Sign In']")
 	WebElement signInBtn;
 
@@ -65,7 +67,7 @@ public class LoginPage extends PageBase {
 
 	// Actions
 
-	public boolean signInUser(String username,String password) {
+	public boolean signInUser(String username, String password) {
 		try {
 
 			System.out.println("================");
@@ -73,21 +75,24 @@ public class LoginPage extends PageBase {
 			sendKeyUser = sendKeysToElement(enterEmail, username);
 			sendKeyPass = sendKeysToElement(enterPassword, password);
 			if (sendKeyUser && sendKeyPass) {
-
-				System.out.println(signInBtn.isEnabled() + "======>>>> enabled");
-				System.out.println(signInBtn.isDisplayed() + "======>>>> displayed");
-
 				if (checkElementEnabled(signInBtn)) {
-					clickElement(signInBtn);
+					clickElementButton(signInBtn);
 					log.info("SignIn clicked");
+//					extentReportLogger.log(LogStatus.PASS, "The testcase is passed ===>>");
+//					PageBase.reportTestCaseStatus(driver, extentReportLogger, method.getName(), true);
 					return true;
 				} else {
 					log.info("Unable to click SignIn Button, please enter valid credentials");
+//					extentReportLogger.log(LogStatus.FAIL, "The testcase is passed ===>>");
+//					PageBase.reportTestCaseStatus(driver, extentReportLogger, method.getName(), false);
 					return false;
 				}
 				// return new LandingPage();
 			} else {
 				log.info("Unable to send the keys to username and password");
+				
+//				extentReportLogger.log(LogStatus.FAIL, "The testcase is passed ===>>");
+//				PageBase.reportTestCaseStatus(driver, extentReportLogger, method.getName(), false);
 				return false;
 				// return null;
 			}
@@ -102,7 +107,7 @@ public class LoginPage extends PageBase {
 	public void createAccountClick() {
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		WebElement element = wait.until(ExpectedConditions.visibilityOf(accountBtn));
-		clickElement(accountBtn);
+		clickElementButton(accountBtn);
 	}
 
 	/**
@@ -113,13 +118,13 @@ public class LoginPage extends PageBase {
 	 * @param newEmail
 	 * @param newPassword
 	 */
-	public void enterUserDetails(String name, String mobileNumber, String newEmail, String newPassword) {
+	public void enterUserDetails(String name, String mobileNumber, String newEmail, String newPassword, Method method) {
 
 		System.out.println("Printing Login Page");
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		WebElement element = wait.until(ExpectedConditions.visibilityOf(accountBtn));
 		// accountBtn.click();
-		clickElement(accountBtn);
+		clickElementButton(accountBtn);
 
 		Actions actions = new Actions(driver);
 		actions.moveToElement(enterUserName).click().perform();
@@ -134,13 +139,20 @@ public class LoginPage extends PageBase {
 		if (sendFormUser && sendFormPass && sendFormEmail && sendFormMobile) {
 
 			log.info("Data entered in form");
-			clickElement(registerBtn);
-			clickElement(closeBtn);
+			clickElementButton(registerBtn);
+			clickElementButton(closeBtn);
+			extentReportLogger.log(LogStatus.PASS, "The testcase is passed ===>>");
+			PageBase.reportTestCaseStatus(driver, extentReportLogger, method.getName(), true);
 
 		} else {
 			log.info("Unable to enter the data into form");
+			extentReportLogger.log(LogStatus.FAIL, "The testcase is passed ===>>");
+			PageBase.reportTestCaseStatus(driver, extentReportLogger, method.getName(), false);
+			
 		}
 
 	}
+
+	
 
 }

@@ -52,12 +52,12 @@ public class SellingPage extends PageBase{
 			public String buyChair()
 			{
 				
-				clickElement(chairSelect);
-				clickElement(buyChairButton);
-				clickElement(placeOrderButton);
-				clickElement(confirmYesButton);
-				clickElement(selectRadioButton);
-				clickElement(placeOrderFinalButton);
+				clickElementButton(chairSelect);
+				clickElementButton(buyChairButton);
+				clickElementButton(placeOrderButton);
+				clickElementButton(confirmYesButton);
+				clickElementButton(selectRadioButton);
+				clickElementButton(placeOrderFinalButton);
 				
 				finalOrderText = getTextForElement(finalText);
 				

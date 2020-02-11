@@ -34,7 +34,6 @@ public class HomePageTest extends PageBase {
 
 	@BeforeMethod
 	public void setUp() {
-		log.info("In the set up method, HomePageTest");
 		this.extentReportLogger = PageBase.extentReportLogger;
 		extentReportLogger.assignCategory(testCategory);
 		homePage = new HomePage();
@@ -42,34 +41,16 @@ public class HomePageTest extends PageBase {
 	}
 
 	@Test(enabled = true, priority = 1)
-	public void homePageTitleTest(Method method) {
-		String title = homePage.validateSignInPage();
-		// Reporter.log(title,true);
-		log.info(title);
-		log.info("*******Title is displayed*********");
-		Assert.assertEquals(title, "Book My Furniture - QA(2.3.2)-Final");
-		if (title.equalsIgnoreCase("Book My Furniture - QA(2.3.2)-Final")) {
-			extentReportLogger.log(LogStatus.PASS, "The testcase is passed ===>>");
-			PageBase.reportTestCaseStatus(driver, extentReportLogger, method.getName(), true);
-		} else {
-			extentReportLogger.log(LogStatus.FAIL, "The testcase has failed ===>>");
-			PageBase.reportTestCaseStatus(driver, extentReportLogger, method.getName(), false);
-		}
-
+	public void homePageTitleTest(Method method) throws InterruptedException {
+		homePage.validateSignInPage(method);
+		Thread.sleep(4000);
 	}
 
 	@Test(enabled = true, priority = 2)
-	public void clickSignInTest(Method method) {
-		loginPage = homePage.ClickSignUpButton();
+	public void clickSignInTest(Method method) throws InterruptedException {
+		loginPage = homePage.ClickSignUpButton(method);
+		Thread.sleep(4000);
 
-		if (loginPage == null) {
-
-			extentReportLogger.log(LogStatus.FAIL, "The testcase is failed ===>>");
-			PageBase.reportTestCaseStatus(driver, extentReportLogger, method.getName(), false);
-		} else {
-			extentReportLogger.log(LogStatus.PASS, "The testcase is passed ===>>");
-			PageBase.reportTestCaseStatus(driver, extentReportLogger, method.getName(), true);
-		}
 	}
 
 }
