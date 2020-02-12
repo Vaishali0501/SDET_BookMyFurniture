@@ -70,7 +70,7 @@ public class LandingPageTest extends PageBase {
 	}
 
 	@Test(priority = 2)
-	public void clickAllFurnBtn(Method method) {
+	public void clickAllFurnTest(Method method) {
 		sellingPage = landingPage.clickAllFurnBtn(method);
 
 	}

@@ -13,7 +13,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.mindtree.sdet.test.HomePageTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 public class LoginPage extends PageBase {

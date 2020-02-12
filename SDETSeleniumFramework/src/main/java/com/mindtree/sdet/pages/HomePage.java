@@ -8,10 +8,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-import com.mindtree.sdet.test.HomePageTest;
-import com.mindtree.sdet.test.SellingPageTest;
-import com.mindtree.sdet.util.InitializeDriver;
-import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 /**
